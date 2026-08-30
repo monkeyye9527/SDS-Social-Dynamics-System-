@@ -1,0 +1,10 @@
+supportedContent: ALL
+minimumSupportedBuild: 722606
+
+APIVersion: 2
+
+priority: 100
+
+# dependencies:
+#   - id: SomeOtherModId
+#     minimum_version: "1.0.0"

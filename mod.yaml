@@ -1,0 +1,14 @@
+﻿title: "ONI Mega Mod Pack"
+description: "A comprehensive ONI mod integration pack with three major modules: QoL improvements, balance adjustments, and new content."
+assembly: "ONIModPack.dll"
+version: 3.0.0
+id: "ONIModPack"
+author: "ONI Mod Pack Team"
+tags:
+  - "QoL"
+  - "Balance"
+  - "Buildings"
+  - "Automation"
+  - "Utility"
+  - "Gameplay"
+  - "Social"

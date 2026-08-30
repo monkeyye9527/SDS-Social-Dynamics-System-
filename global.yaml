@@ -1,0 +1,23 @@
+version: "3.0"
+logging:
+  level: Debug
+  maxFileSizeMb: 10
+modules:
+  QoL.Automation.AutoSweeperRange:
+    enabled: true
+  QoL.UI.OverlayImprovements:
+    enabled: true
+  QoL.Convenience.SmartStorage:
+    enabled: true
+  Balance.Difficulty.Hunger:
+    enabled: false
+  Content.Buildings.SolarPanelT2:
+    enabled: true
+  Content.SocialDynamics:
+    enabled: true
+  Content.BeliefSystem:
+    enabled: true
+  Content.TraitSystem:
+    enabled: true
+  Content.SocialResearch:
+    enabled: true

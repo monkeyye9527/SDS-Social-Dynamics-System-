@@ -1,0 +1,22 @@
+building_name: CommunityCenter
+slots:
+  - id: storage_main
+    type: storage
+    x: 0
+    y: 0
+    capacity: 50.0
+  - id: workable_social
+    type: workable
+    x: 1
+    y: 0
+    is_workable: true
+    workable_type: social
+tints:
+  - name: Wood
+    r: 0.6
+    g: 0.4
+    b: 0.2
+  - name: Steel
+    r: 0.7
+    g: 0.7
+    b: 0.7

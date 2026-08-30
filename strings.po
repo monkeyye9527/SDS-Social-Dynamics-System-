@@ -1,0 +1,10 @@
+﻿msgid ""
+msgstr ""
+"Project-Id-Version: ONI Mod Pack 3.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "ONIModPack.SocialInteraction"
+msgstr "Social Interaction"
+
+msgid "ONIModPack.CommunityCenter"
+msgstr "Community Center"

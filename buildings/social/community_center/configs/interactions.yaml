@@ -1,0 +1,34 @@
+building_id: CommunityCenter
+interactions:
+  - id: socialize
+    name: Socialize
+    description: Spend time chatting with other duplicants
+    chore_type: Social
+    duration: 30.0
+    stress_reduction: 5.0
+    satisfaction_bonus: 5.0
+    loyalty_bonus: 0.0
+    belief_influence: ""
+    max_participants: 2
+  
+  - id: party
+    name: Throw Party
+    description: Organize a fun gathering
+    chore_type: Party
+    duration: 60.0
+    stress_reduction: 15.0
+    satisfaction_bonus: 10.0
+    loyalty_bonus: 5.0
+    belief_influence: OrderOfTheHatch
+    max_participants: 4
+  
+  - id: meeting
+    name: Hold Meeting
+    description: Discuss important matters with the team
+    chore_type: Meeting
+    duration: 45.0
+    stress_reduction: 0.0
+    satisfaction_bonus: 2.0
+    loyalty_bonus: 8.0
+    belief_influence: ""
+    max_participants: 3
