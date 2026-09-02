@@ -6,6 +6,8 @@
     <OutputType>Library</OutputType>
     <TargetFramework>net48</TargetFramework>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <!-- 与 mod.yaml version 一致；SDK 据此生成 AssemblyVersion 特性 -->
+    <Version>3.0.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -37,6 +39,12 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>lib\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>lib\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>lib\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.AnimationModule">
       <HintPath>lib\UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
@@ -64,7 +72,12 @@
     <PackageReference Include="Lib.Harmony" Version="2.3.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PLib" Version="4.15.0.0" />
-    <PackageReference Include="System.Collections.Immutable" Version="8.0.0" />
+    <!-- System.Memory 4.5.4（net48 兼容，提供 Span<T>）：替代 System.Collections.Immutable 8.0 传递的
+         System.Memory 4.5.5（其 netstandard2.0 资产引用 netstandard 2.1，net48 运行时加载失败） -->
+    <PackageReference Include="System.Memory" Version="4.5.4" />
+    <!-- 统一 System.Runtime.CompilerServices.Unsafe 到 6.0（Assembly-CSharp 引用 6.0.0.0，
+         System.Memory 4.5.4 传递 4.5.3 → 消除 MSB3277 版本冲突警告） -->
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -76,19 +89,57 @@
     <None Include="plugins\**\*" CopyToOutputDirectory="PreserveNewest" Condition="Exists('plugins')" />
   </ItemGroup>
 
-  <Target Name="CopyToDist" AfterTargets="Build">
+  <!-- 发布包：只收 Release 构建产物，且复制前先清空 dist，防止新旧文件混入（clean → stage → package） -->
+  <Target Name="CopyToDist" AfterTargets="Build" Condition="'$(Configuration)'=='Release'">
+    <RemoveDir Directories="dist\ONIModPack" />
+    <MakeDir Directories="dist\ONIModPack" />
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="dist\ONIModPack" />
     <Copy SourceFiles="$(TargetPdb)" DestinationFolder="dist\ONIModPack" Condition="Exists('$(TargetPdb)')" />
     <Copy SourceFiles="mod.yaml" DestinationFolder="dist\ONIModPack" />
     <Copy SourceFiles="mod_info.yaml" DestinationFolder="dist\ONIModPack" />
+    <ItemGroup>
+      <DistAssets Include="assets\**\*" Condition="Exists('assets')" />
+      <DistStrings Include="strings\**\*" Condition="Exists('strings')" />
+      <!-- 发布包剔除 gamepaths.yaml：含本机 D:/steam、C:/Users/... 个人路径，仅随本地开发保留模板 -->
+      <DistConfig Include="config\**\*" Exclude="config\gamepaths.yaml" Condition="Exists('config')" />
+      <DistPlugins Include="plugins\**\*" Condition="Exists('plugins')" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DistAssets)" DestinationFiles="@(DistAssets->'dist\ONIModPack\assets\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(DistStrings)" DestinationFiles="@(DistStrings->'dist\ONIModPack\strings\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(DistConfig)" DestinationFiles="@(DistConfig->'dist\ONIModPack\config\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(DistPlugins)" DestinationFiles="@(DistPlugins->'dist\ONIModPack\plugins\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
 
-  <Target Name="Deploy" DependsOnTargets="CopyToDist" Condition="'$(GameModsFolder)' != ''">
-    <ItemGroup>
-      <DistFiles Include="dist\ONIModPack\**\*" />
-    </ItemGroup>
+  <!-- 本地部署：只复制 mod 自身产物 + 运行时依赖，绝不复制游戏 DLL（Assembly-CSharp/UnityEngine* 由
+       游戏自身从 Managed 目录加载，mods 里放旧版主程序集有 MissingMethod/TypeLoad 污染风险）。 -->
+  <Target Name="Deploy" AfterTargets="Build" Condition="'$(GameModsFolder)' != ''">
     <MakeDir Directories="$(GameModsFolder)" Condition="!Exists('$(GameModsFolder)')" />
-    <Copy SourceFiles="@(DistFiles)" DestinationFolder="$(GameModsFolder)" />
+    <!-- 清理历史部署可能残留的游戏 DLL（旧版 Deploy 全量复制污染过 mods 目录） -->
+    <ItemGroup>
+      <StaleGameDlls Include="$(GameModsFolder)\Assembly-CSharp.dll;
+                               $(GameModsFolder)\Assembly-CSharp-firstpass.dll;
+                               $(GameModsFolder)\UnityEngine*.dll" />
+    </ItemGroup>
+    <Delete Files="@(StaleGameDlls)" />
+    <ItemGroup>
+      <DeployFiles Include="$(TargetDir)\**\*"
+                   Exclude="$(TargetDir)Assembly-CSharp.dll;
+                            $(TargetDir)Assembly-CSharp-firstpass.dll;
+                            $(TargetDir)UnityEngine.dll;
+                            $(TargetDir)UnityEngine.CoreModule.dll;
+                            $(TargetDir)UnityEngine.UI.dll;
+                            $(TargetDir)UnityEngine.UIModule.dll;
+                            $(TargetDir)Unity.TextMeshPro.dll;
+                            $(TargetDir)UnityEngine.AnimationModule.dll;
+                            $(TargetDir)UnityEngine.AudioModule.dll;
+                            $(TargetDir)UnityEngine.IMGUIModule.dll;
+                            $(TargetDir)UnityEngine.InputLegacyModule.dll;
+                            $(TargetDir)UnityEngine.PhysicsModule.dll;
+                            $(TargetDir)UnityEngine.SpriteMaskModule.dll;
+                            $(TargetDir)UnityEngine.TextRenderingModule.dll;
+                            $(TargetDir)UnityEngine.ImageConversionModule.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DeployFiles)" DestinationFiles="@(DeployFiles->'$(GameModsFolder)\%(RecursiveDir)%(Filename)%(Extension)')" />
     <Message Importance="high" Text="Deployed to $(GameModsFolder)" />
   </Target>
 

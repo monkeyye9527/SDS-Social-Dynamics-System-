@@ -1,0 +1,43 @@
+version: "3.0"
+logging:
+  level: Debug
+  maxFileSizeMb: 10
+modules:
+  QoL.Automation.AutoSweeperRange:
+    enabled: true
+  QoL.UI.OverlayImprovements:
+    enabled: true
+  QoL.Convenience.SmartStorage:
+    enabled: true
+  Balance.Difficulty.Hunger:
+    enabled: false
+  Content.SocialDynamics:
+    enabled: true
+  BuildingRegistration:
+    enabled: true
+  Content.BeliefSystem:
+    enabled: true
+  Content.TraitSystem:
+    enabled: true
+  Content.SocialResearch:
+    enabled: true
+  Content.SocialUI:
+    enabled: true
+  Content.Legislation:
+    enabled: true
+  Content.LegislationUI:
+    enabled: true
+  Content.Emergence:
+    enabled: true
+  Content.Governance:
+    enabled: true
+  Content.Polity:
+    enabled: true
+  AversionSystem:
+    enabled: true
+  Behavior:
+    enabled: true
+  EnvironmentAdaptation:
+    enabled: true
+  FurnitureRegistration:
+    enabled: true
