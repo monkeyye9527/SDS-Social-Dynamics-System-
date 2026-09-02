@@ -1,0 +1,460 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ONI Mod Pack (SDS) 3.1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "ONIModPack.Event.BeliefChanged"
+msgstr "Faith Changed"
+
+msgid "ONIModPack.Event.Default"
+msgstr "Social Event"
+
+msgid "ONIModPack.Event.MeetingHeld"
+msgstr "Meeting Held"
+
+msgid "ONIModPack.Event.PartyFailed"
+msgstr "Party Failed"
+
+msgid "ONIModPack.Event.PartyHeld"
+msgstr "Party Held"
+
+msgid "ONIModPack.Event.RelationshipChanged"
+msgstr "Relationship Changed"
+
+msgid "ONIModPack.Event.ResearchUnlocked"
+msgstr "Social Research Unlocked"
+
+msgid "ONIModPack.Event.RushedResearch"
+msgstr "Rushed Research"
+
+msgid "ONIModPack.Event.StressReduced"
+msgstr "Stress Reduced"
+
+msgid "ONIModPack.Event.Strike"
+msgstr "Strike Erupted"
+
+msgid "ONIModPack.Event.TraitGained"
+msgstr "Trait Gained"
+
+msgid "ONIModPack.F3.Desc"
+msgstr "Social tree / colony 4D / duplicant details (F3 or this button opens the native UI)"
+
+msgid "ONIModPack.F3.Legacy.Button"
+msgstr "Open legacy social status screen"
+
+msgid "ONIModPack.F3.Legacy.Open"
+msgstr "Legacy social status screen (simple stats)"
+
+msgid "ONIModPack.F3.OpenScreen"
+msgstr "Open Social Overview (native UI)"
+
+msgid "ONIModPack.Leg.Create.CreateFirst"
+msgstr "Create a draft first"
+
+msgid "ONIModPack.Leg.Create.CreateLaw"
+msgstr "Create Draft"
+
+msgid "ONIModPack.Leg.Create.Created"
+msgstr "Draft {0} created; submit for review or enact"
+
+msgid "ONIModPack.Leg.Create.Enact"
+msgstr "Enact Now"
+
+msgid "ONIModPack.Leg.Create.Enacted"
+msgstr "Law enacted"
+
+msgid "ONIModPack.Leg.Create.Fail"
+msgstr "Failed: {0}"
+
+msgid "ONIModPack.Leg.Create.Header"
+msgstr "Enact New Law"
+
+msgid "ONIModPack.Leg.Create.Off"
+msgstr "Off"
+
+msgid "ONIModPack.Leg.Create.On"
+msgstr "On"
+
+msgid "ONIModPack.Leg.Create.Propose"
+msgstr "Submit for Review"
+
+msgid "ONIModPack.Leg.Create.Proposed"
+msgstr "Law submitted for review"
+
+msgid "ONIModPack.Leg.Detail.Effects"
+msgstr "Passive effects"
+
+msgid "ONIModPack.Leg.Detail.None"
+msgstr "None"
+
+msgid "ONIModPack.Leg.Detail.Params"
+msgstr "Parameters"
+
+msgid "ONIModPack.Leg.Detail.Plugins"
+msgstr "Plugins"
+
+msgid "ONIModPack.Leg.Detail.Scope"
+msgstr "Scope"
+
+msgid "ONIModPack.Leg.Empty"
+msgstr "No laws yet"
+
+msgid "ONIModPack.Leg.Header.Cost"
+msgstr "Authority"
+
+msgid "ONIModPack.Leg.Header.Level"
+msgstr "Level"
+
+msgid "ONIModPack.Leg.Header.Name"
+msgstr "Law"
+
+msgid "ONIModPack.Leg.Header.Sponsor"
+msgstr "Sponsor"
+
+msgid "ONIModPack.Leg.Header.Status"
+msgstr "Status"
+
+msgid "ONIModPack.Leg.Level.AdministrativeRule"
+msgstr "Administrative Rule"
+
+msgid "ONIModPack.Leg.Level.PoliticalLaw"
+msgstr "Political Law"
+
+msgid "ONIModPack.Leg.Level.SupremeLaw"
+msgstr "Supreme Law"
+
+msgid "ONIModPack.Leg.NotReady"
+msgstr "Legislation not available (module disabled or still starting)"
+
+msgid "ONIModPack.Leg.Sponsor.Player"
+msgstr "Player"
+
+msgid "ONIModPack.Leg.Status.Debating"
+msgstr "Debating"
+
+msgid "ONIModPack.Leg.Status.Draft"
+msgstr "Draft"
+
+msgid "ONIModPack.Leg.Status.Enacted"
+msgstr "Enacted"
+
+msgid "ONIModPack.Leg.Status.FinalValidation"
+msgstr "Final review"
+
+msgid "ONIModPack.Leg.Status.Proposed"
+msgstr "Proposed"
+
+msgid "ONIModPack.Leg.Status.Rejected"
+msgstr "Rejected"
+
+msgid "ONIModPack.Leg.Status.Repealed"
+msgstr "Repealed"
+
+msgid "ONIModPack.Leg.Status.Voting"
+msgstr "Voting"
+
+msgid "ONIModPack.Leg.Summary"
+msgstr "Enacted {0} · In review {1} · Draft/other {2}"
+
+msgid "ONIModPack.Notify.Belief.Changed"
+msgstr "Faith changed: {0}"
+
+msgid "ONIModPack.Notify.Belief.Gained"
+msgstr "Gained a new faith: {0}"
+
+msgid "ONIModPack.Notify.Party.Detail"
+msgstr "Party held! {0} attendees, loyalty +{1}, satisfaction +{2}"
+
+msgid "ONIModPack.Notify.Party.Fail"
+msgstr "Party failed"
+
+msgid "ONIModPack.Notify.Party.FailDetail"
+msgstr "Party failed: only {0} attended (not enough people)"
+
+msgid "ONIModPack.Notify.Party.Ok"
+msgstr "Party held successfully"
+
+msgid "ONIModPack.Notify.Party.Ongoing"
+msgstr "Party in progress"
+
+msgid "ONIModPack.Notify.Research.Rushed"
+msgstr "{0} (prerequisites skipped at a social cost)"
+
+msgid "ONIModPack.Notify.Research.Unlocked"
+msgstr "{0} → unlocked buildings: {1}"
+
+msgid "ONIModPack.Notify.Stress.Down"
+msgstr "Stress relieved"
+
+msgid "ONIModPack.Notify.Stress.Up"
+msgstr "Stress rising"
+
+msgid "ONIModPack.Notify.Strike"
+msgstr "Strike erupted: {0}"
+
+msgid "ONIModPack.Notify.Strike.Detail"
+msgstr "Strike! {0} workers walked out (reason: {1})"
+
+msgid "ONIModPack.Notify.Trait.Gained"
+msgstr "Gained a new trait: {0}"
+
+msgid "ONIModPack.Notify.Trait.Status"
+msgstr "Gained trait: {0}"
+
+msgid "ONIModPack.OldScreen.Beliefs"
+msgstr "Belief Count"
+
+msgid "ONIModPack.OldScreen.Empty"
+msgstr "No social data yet"
+
+msgid "ONIModPack.OldScreen.Loyalty"
+msgstr "Avg Loyalty"
+
+msgid "ONIModPack.OldScreen.Satisfaction"
+msgstr "Avg Satisfaction"
+
+msgid "ONIModPack.OldScreen.Title"
+msgstr "Social Status"
+
+msgid "ONIModPack.Overlay.Faith"
+msgstr "Faith & Stress"
+
+msgid "ONIModPack.Overlay.Faith.None"
+msgstr "No Faith"
+
+msgid "ONIModPack.Overlay.Faith.Tooltip"
+msgstr "Tints cells around duplicants by their faith; red marks zones of conflicting faiths"
+
+msgid "ONIModPack.Overlay.Legend.Conflict"
+msgstr "Faith conflict zone"
+
+msgid "ONIModPack.Overlay.Legend.Desc"
+msgstr "Brighter colour = stronger faith"
+
+msgid "ONIModPack.Overlay.Legend.StressHigh"
+msgstr "Social stress ≥ 60"
+
+msgid "ONIModPack.Overlay.Legend.StressMid"
+msgstr "Social stress 30–59"
+
+msgid "ONIModPack.Overlay.Stress.High"
+msgstr "Stress"
+
+msgid "ONIModPack.Research.ArtificialGovernance"
+msgstr "Artificial Governance"
+
+msgid "ONIModPack.Research.BasicPropaganda"
+msgstr "Basic Propaganda"
+
+msgid "ONIModPack.Research.ColonyGovernance"
+msgstr "Colony Governance"
+
+msgid "ONIModPack.Research.ColonyLaws"
+msgstr "Colony Laws"
+
+msgid "ONIModPack.Research.ColonyParliament"
+msgstr "Colony Parliament"
+
+msgid "ONIModPack.Research.CulturalShaping"
+msgstr "Cultural Shaping"
+
+msgid "ONIModPack.Research.GroupDynamics"
+msgstr "Group Dynamics"
+
+msgid "ONIModPack.Research.IdeologySystem"
+msgstr "Ideology System"
+
+msgid "ONIModPack.Research.LaborManagement"
+msgstr "Labor Management"
+
+msgid "ONIModPack.Research.MassPsychology"
+msgstr "Mass Psychology"
+
+msgid "ONIModPack.Research.OrganizationalTheory"
+msgstr "Organizational Theory"
+
+msgid "ONIModPack.Research.PropagandaEngineering"
+msgstr "Propaganda Engineering"
+
+msgid "ONIModPack.Research.PublicWelfare"
+msgstr "Public Welfare"
+
+msgid "ONIModPack.Research.ResourceAllocation"
+msgstr "Resource Allocation"
+
+msgid "ONIModPack.Research.SocialEngineering"
+msgstr "Social Engineering"
+
+msgid "ONIModPack.Research.SocialObservation"
+msgstr "Social Observation"
+
+msgid "ONIModPack.Research.SocialSimulation"
+msgstr "Social Simulation"
+
+msgid "ONIModPack.Research.Specialization"
+msgstr "Specialization"
+
+msgid "ONIModPack.Research.Technocracy"
+msgstr "Technocracy"
+
+msgid "ONIModPack.Research.UnionSystem"
+msgstr "Union Movement"
+
+msgid "ONIModPack.Research.WorkScheduling"
+msgstr "Shift System"
+
+msgid "ONIModPack.Screen.Social.Close"
+msgstr "Close"
+
+msgid "ONIModPack.Screen.Social.Colony.Avg"
+msgstr "Colony Average"
+
+msgid "ONIModPack.Screen.Social.Colony.Faith"
+msgstr "Believers: {0}/{1}"
+
+msgid "ONIModPack.Screen.Social.Colony.Loyalty"
+msgstr "Avg loyalty: {0:F0}%"
+
+msgid "ONIModPack.Screen.Social.Colony.Satisfaction"
+msgstr "Avg satisfaction: {0:F0}%"
+
+msgid "ONIModPack.Screen.Social.Colony.Stress"
+msgstr "Avg social stress: {0:F0}%"
+
+msgid "ONIModPack.Screen.Social.Dim.Activity"
+msgstr "Activity"
+
+msgid "ONIModPack.Screen.Social.Dim.Creativity"
+msgstr "Creativity"
+
+msgid "ONIModPack.Screen.Social.Dim.Risk"
+msgstr "Risk"
+
+msgid "ONIModPack.Screen.Social.Dim.Sociality"
+msgstr "Sociality"
+
+msgid "ONIModPack.Screen.Social.Dup.Belief"
+msgstr "Faith: {0}"
+
+msgid "ONIModPack.Screen.Social.Dup.None"
+msgstr "(no duplicant data)"
+
+msgid "ONIModPack.Screen.Social.Dup.Select"
+msgstr "Click a duplicant to view their four-dimension chart"
+
+msgid "ONIModPack.Screen.Social.Dup.Stress"
+msgstr "Social stress: {0:F0}%"
+
+msgid "ONIModPack.Screen.Social.Node.Available"
+msgstr "Available"
+
+msgid "ONIModPack.Screen.Social.Node.Locked"
+msgstr "Locked"
+
+msgid "ONIModPack.Screen.Social.Node.Rush"
+msgstr "Rush"
+
+msgid "ONIModPack.Screen.Social.Node.Rushed"
+msgstr "Rushed"
+
+msgid "ONIModPack.Screen.Social.Node.Unlock"
+msgstr "Unlock"
+
+msgid "ONIModPack.Screen.Social.Node.Unlocked"
+msgstr "Unlocked"
+
+msgid "ONIModPack.Screen.Social.Sdp"
+msgstr "Dev Points SDP: {0:F0}    Unlocked: {1}/{2}"
+
+msgid "ONIModPack.Screen.Social.Tab.Colony"
+msgstr "Colony & Duplicants"
+
+msgid "ONIModPack.Screen.Social.Tab.Legislation"
+msgstr "Legislation"
+
+msgid "ONIModPack.Screen.Social.Tab.Tree"
+msgstr "Social Tree"
+
+msgid "ONIModPack.Screen.Social.Tier"
+msgstr "Tier {0}"
+
+msgid "ONIModPack.Screen.Social.Title"
+msgstr "Colony Social Overview"
+
+msgid "ONIModPack.Screen.Social.Tree.NotReady"
+msgstr "Social research not available (module disabled or still starting)"
+
+msgid "ONIModPack.Strike.Reason.Law"
+msgstr "Law change"
+
+msgid "ONIModPack.Strike.Reason.Leadership"
+msgstr "Leadership dispute"
+
+msgid "ONIModPack.Strike.Reason.LowMorale"
+msgstr "Low morale"
+
+msgid "ONIModPack.Strike.Reason.Other"
+msgstr "Other"
+
+msgid "ONIModPack.Strike.Reason.Resource"
+msgstr "Resource shortage"
+
+msgid "ONIModPack.Strike.Reason.Unfair"
+msgstr "Unfair work conditions"
+
+msgid "ONIModPack.Vitals.Activity"
+msgstr "Activity"
+
+msgid "ONIModPack.Vitals.Activity.Desc"
+msgstr "Four-dimension trait: activity / energy drive (0-100)."
+
+msgid "ONIModPack.Vitals.Creativity"
+msgstr "Creativity"
+
+msgid "ONIModPack.Vitals.Creativity.Desc"
+msgstr "Four-dimension trait: creative drive (0-100)."
+
+msgid "ONIModPack.Vitals.Dim.Activity"
+msgstr "4D Activity"
+
+msgid "ONIModPack.Vitals.Dim.Creativity"
+msgstr "4D Creativity"
+
+msgid "ONIModPack.Vitals.Dim.Risk"
+msgstr "4D Risk"
+
+msgid "ONIModPack.Vitals.Dim.Sociality"
+msgstr "4D Sociality"
+
+msgid "ONIModPack.Vitals.Faith"
+msgstr "Faith"
+
+msgid "ONIModPack.Vitals.Faith.Desc"
+msgstr "Strength percentage of the duplicant's dominant faith (0-100)."
+
+msgid "ONIModPack.Vitals.Faith.None"
+msgstr "None"
+
+msgid "ONIModPack.Vitals.Faith.Note"
+msgstr "Dominant faith: {0}"
+
+msgid "ONIModPack.Vitals.Risk"
+msgstr "Risk Tolerance"
+
+msgid "ONIModPack.Vitals.Risk.Desc"
+msgstr "Four-dimension trait: risk-taking drive (0-100)."
+
+msgid "ONIModPack.Vitals.Sociality"
+msgstr "Sociality"
+
+msgid "ONIModPack.Vitals.Sociality.Desc"
+msgstr "Four-dimension trait: social interaction drive (0-100)."
+
+msgid "ONIModPack.Vitals.Stress"
+msgstr "Social Stress"
+
+msgid "ONIModPack.Vitals.Stress.Desc"
+msgstr "Social stress from the Social Dynamics system (0-100), coexists with vanilla stress."
+
+msgid "ONIModPack.Vitals.Stress.Note"
+msgstr "Social dynamics stress"

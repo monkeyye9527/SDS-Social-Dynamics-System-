@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- net8.0：net48 测试宿主不支持 Unity DLL（lib/*.dll）引用的 netstandard 2.1；net8 原生支持 -->
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <LangVersion>9.0</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <!-- YamlDotNet 16.x 的 netstandard2.0 资产引用 netstandard 2.1，net48 测试运行时加载失败；降级到 net48 友好的 13.1.1 -->
+    <PackageReference Include="YamlDotNet" Version="13.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Stubs\**\*.cs" />
+    <Compile Include="YamlAndRegionalTests.cs" />
+    <Compile Include="EventCoverageTests.cs" />
+    <Compile Include="SchedulerTests.cs" />
+    <Compile Include="EventBusTests.cs" />
+    <Compile Include="CommunityCenterTest.cs" />
+    <Compile Include="LegislationTests.cs" />
+    <Compile Include="EmergentMacroTests.cs" />
+    <Compile Include="EmergentLawTests.cs" />
+    <Compile Include="FactionActionSystemGroupWiringTests.cs" />
+    <Compile Include="FactionSystemC1Tests.cs" />
+    <Compile Include="ElectionTermResetC2Tests.cs" />
+    <Compile Include="SocialTreeConfigTests.cs" />
+    <Compile Include="SocialDevelopmentPoolTests.cs" />
+    <Compile Include="SocialTreeDirectionResolverTests.cs" />
+    <Compile Include="SocialTreeProgressTests.cs" />
+    <Compile Include="SocialTreeInterveneTests.cs" />
+    <Compile Include="SocialTreeRushedTests.cs" />
+    <Compile Include="SaveCompatRoundTripTests.cs" />
+    <Compile Include="ModStringsTests.cs" />
+    <Compile Include="FaithStressOverlayTests.cs" />
+    <Compile Include="SocialResearchLocalizationTests.cs" />
+    <Compile Include="ColonyTreasuryTests.cs" />
+    <Compile Include="EmergenceSignalTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ONIModPack">
+      <HintPath>..\bin\$(Configuration)\net48\ONIModPack.dll</HintPath>
+    </Reference>
+    <!-- FakeFactionSystem 实现 IFactionSystem 时签名含真实 UnityEngine.GameObject，需引用主工程同款 Unity DLL -->
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\lib\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>

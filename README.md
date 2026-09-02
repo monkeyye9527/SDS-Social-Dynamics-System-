@@ -1,43 +1,50 @@
-# ONI Mod Pack - Integrated v3.0
+# Social Dynamics System (SDS) v3.0
 
-整合优化后的 ONI (Oxygen Not Included) Mod 包，融合了多个版本的最佳特性。
+缺氧 (Oxygen Not Included) 的社交动力学系统模组：复制人拥有信仰、人格、社交压力、派系与政治玩法（选举 / 立法 / 罢工），并深度集成进原生 UI。
 
 ## 项目结构
 
 ```
 src/
-├── Core/                    # 核心框架
-│   ├── IModModule.cs        # 模块接口
-│   ├── ModuleManager.cs     # 模块管理 (Kahn拓扑排序)
-│   ├── ModEntry.cs          # 入口
-│   ├── EventBus.cs          # 事件总线 (线程安全)
-│   ├── Config/ConfigManager.cs  # 配置管理
-│   └── Utils/{Logger.cs, YamlHelper.cs}
+├── Core/                       # 核心框架
+│   ├── Entry/ModEntry.cs       # 入口（模块发现/配置覆盖/建筑注册协调）
+│   ├── Modules/                # 模块生命周期、Kahn 拓扑排序、热重载
+│   ├── Diagnostics/            # DebugSystem(F3)、DevCommandRegistry
+│   ├── Services/               # ServiceRegistry / ServiceResolver
+│   ├── Config/ConfigManager.cs # global.yaml 模块开关 + 配置热重载
+│   ├── Events/EventBus.cs      # 事件总线（线程安全，GameEvent 带 DuplicantId）
+│   ├── Rules/EffectPipeline.cs # 效果管线（Modifier SourceId/Target）
+│   ├── Compat/BuildingApiAdapter.cs
+│   ├── Saving / Simulation / Logging / Utils
 ├── Content/
-│   ├── Personality/         # 五维人格系统
-│   │   └── PersonalityProfile.cs
-│   ├── BeliefSystem/        # 信仰系统
-│   │   ├── BeliefType.cs
-│   │   ├── BeliefSystemCore.cs  # 含脏标记优化
-│   │   └── BeliefTraitManager.cs
-│   ├── TraitSystem/         # 特质系统 (35+特质)
-│   │   ├── TraitManager.cs
-│   │   ├── TraitEffectSystem.cs
-│   │   └── TraitSystemModule.cs
-│   ├── SocialDynamics/      # 社交动力学
-│   │   ├── SocialDynamicsModule.cs
-│   │   ├── StressDynamicsSystem.cs
-│   │   ├── EntertainmentNeedSystem.cs
-│   │   └── StrikeSystem.cs
-│   └── Buildings/
-│       └── SolarPanelT2Module.cs
+│   ├── SocialDynamics/         # 社交动力学（政治玩法闭环主模块）
+│   │   ├── Politics/           # 派系/选举/竞选纲领/政府应对（PoliticalGroup v0.92）
+│   │   ├── Governance/         # 合法性、政府响应
+│   │   ├── Emergence/          # 涌现行为
+│   │   ├── Legislation/        # 立法（LawTemplate/LegislationManager/UI）
+│   │   ├── SocialCore/ UI/ Events/ Components/ SDSRuntime/ Proficiency/
+│   │   ├── SocialDynamicsModule.cs / StrikeSystem.cs / SocialState.cs
+│   ├── BeliefSystem/           # 信仰（FaithPropagationGrid、BeliefSystemCore）
+│   ├── Behavior/               # 四维行为（FourDimensionSystem、NPCFourDimensionIntegration）
+│   ├── TraitSystem/            # 特质系统（35+特质）
+│   ├── SocialResearch/         # 社会研究树（SocialResearchDatabase）
+│   ├── Legislation/            # 立法模型/运行时（模板、状态机）
+│   ├── ArtificialWorld/        # 人工世界（FurnitureRegistration）
+│   ├── AversionSystem/         # 厌恶系统（Chore 偏置、强厌恶 Nudge）
+│   ├── EnvironmentAdaptation/  # 环境适应性成长
+│   ├── WorkSessionLedger/      # 工作会话账本（4D/Aversion/Adaptation 单一数据源）
+│   ├── Polity/                 # 政体与经济（ColonyTreasury 财政池，Phase 2 政体状态机）
+│   ├── Personality/            # 五维人格
+│   ├── Buildings/              # 建筑注册唯一入口 BuildingPatches（按模块门控）
 ├── Balance/
-│   └── HungerModule.cs
+│   └── HungerModule.cs         # [WIP] 默认禁用
 └── QoL/
-    ├── AutoSweeperRangeModule.cs
+    ├── AutoSweeperRangeModule.cs   # SolidTransferArm 拾取半径扩展
     ├── OverlayImprovementsModule.cs
     └── SmartStorageModule.cs
 ```
+
+> 设计文档见 `docs/superpowers/specs/`（政治术语冻结、PoliticalGroup×FactionAction 接线等）。
 
 ## 核心架构
 
